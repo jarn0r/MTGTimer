@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="25dp">
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="157dp"
+        android:layout_height="182dp"
+        android:backgroundTint="#301047"
+        android:text="@string/player1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="157dp"
+        android:layout_height="182dp"
+        android:backgroundTint="#7A1313"
+        android:text="@string/player2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="157dp"
+        android:layout_height="182dp"
+        android:backgroundTint="#0F1A67"
+        android:text="@string/player3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="157dp"
+        android:layout_height="182dp"
+        android:backgroundTint="#144C19"
+        android:text="@string/player4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/eTT1"
+        android:layout_width="157dp"
+        android:layout_height="53dp"
+        android:ems="10"
+        android:hint="@string/_0_00_00"
+        android:inputType="time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button1" />
+
+    <EditText
+        android:id="@+id/eTT2"
+        android:layout_width="157dp"
+        android:layout_height="53dp"
+        android:ems="10"
+        android:hint="@string/_0_00_00"
+        android:inputType="time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
+
+    <EditText
+        android:id="@+id/eTT3"
+        android:layout_width="157dp"
+        android:layout_height="53dp"
+        android:ems="10"
+        android:inputType="time"
+        android:text="@string/_0_00_00"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/eTT4"
+        android:layout_width="157dp"
+        android:layout_height="53dp"
+        android:ems="10"
+        android:inputType="time"
+        android:text="@string/_0_00_00"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/eTTGesamt"
+        android:layout_width="157dp"
+        android:layout_height="53dp"
+        android:ems="10"
+        android:inputType="time"
+        android:text="@string/_0_00_00"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

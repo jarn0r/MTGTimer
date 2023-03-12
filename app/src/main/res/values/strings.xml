@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MTGTimer</string>
+    <string name="player1">Player1</string>
+    <string name="player2">Player2</string>
+    <string name="player3">Player3</string>
+    <string name="player4">Player4</string>
+    <string name="_0_00_00">0:00:00</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="elapsed_time">%d seconds</string>
+</resources>
