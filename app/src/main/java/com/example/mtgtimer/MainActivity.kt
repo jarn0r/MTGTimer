@@ -9,14 +9,13 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import java.text.SimpleDateFormat
-import java.util.Calendar
+
 import kotlin.concurrent.thread
 import kotlin.system.measureTimeMillis
 import kotlin.time.measureTime
 
 class MainActivity : AppCompatActivity() {
     var isStarted = false
-    val c = Calendar.getInstance()
     var startTime = 0
     var startmin = 0
     var starthour = 0
@@ -40,27 +39,27 @@ class MainActivity : AppCompatActivity() {
         val timer2 = findViewById<EditText>(R.id.eTT2)
         val timer3 = findViewById<EditText>(R.id.eTT3)
         val timer4 = findViewById<EditText>(R.id.eTT4)
-        /*button1.setOnClickListener{
-            startOrStop()
-            if(isStarted!=true)
-                timer1.setText(stopSecond.toString())
-        }*/
-        handler = Handler(Looper.getMainLooper())
 
+        handler = Handler(Looper.getMainLooper())
 
         button1.setOnClickListener {
             if (isStarted) {
                 // Stop the stopwatch
                 isStarted = false
                 handler.removeCallbacks(updateTimer)
-                val seconds = elapsedTime / 1000
-                timer1.setText(getString(R.string.elapsed_time, seconds))
+                dauer = (stopSecond - startSecond) + (stopmin - startmin) * 60 + (stophour - starthour) * 3600
+                //elapsedTime += (dauer * 1000)
+                Log.d("MainActivity", "$stophour , $stopmin ,$stopSecond")
+                //val seconds = elapsedTime / 1000
+                timer1.setText(getString(R.string.elapsed_time, dauer))
                 button1.text = getString(R.string.start)
             } else {
                 // Start the stopwatch
                 isStarted = true
-                elapsedTime = 0
-                handler.post(updateTimer)
+                Log.d("MainActivity","$starthour ,$startmin, $startSecond")
+                elapsedTime = measureTimeMillis {
+                    handler.post(updateTimer)
+                }
                 button1.text = getString(R.string.stop)
             }
         }
@@ -74,32 +73,4 @@ class MainActivity : AppCompatActivity() {
             handler.postDelayed(this, 10)
         }
     }
-
-        fun startOrStop() {
-            if (isStarted)
-                stop()
-            else
-                start()
-        }
-
-        fun start() {
-            isStarted = true
-            startSecond = c.get(Calendar.SECOND)
-            startmin = c.get(Calendar.MINUTE)
-            starthour = c.get(Calendar.HOUR)
-            Log.d("MainActivity", "Start $starthour $startmin $startSecond")
-        }
-
-        fun stop() {
-            isStarted = false
-            stopSecond = c.get(Calendar.SECOND)
-            stopmin = c.get(Calendar.MINUTE)
-            stophour = c.get(Calendar.HOUR)
-            Log.d("MainActivity", "aa $stophour $stopmin $stopSecond")
-            dauer = stopTime - startTime
-            Log.d("MainActivity", "Stop $dauer")
-            startTime = 0
-            stopTime = 0
-        }
-
 }
